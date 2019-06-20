@@ -1,4 +1,4 @@
-package kr.or.ddit.board.ioc.collection;
+package kr.or.ddit.ioc.collection;
 
 import java.util.List;
 import java.util.Map;
