@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="kr.or.ddit" level="debug">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+<!-- 	아래처럼 세분화된 지정, 활용도 가능하다
+		이 경우 로거가 두 개이기 때문에 로그가 두개씩 출력된다
+ -->
+<!-- 	<logger name="kr.or.ddit.servlet" level="debug"> -->
+<!-- 		<appender-ref ref="STDOUT" /> -->
+<!-- 	</logger> -->
+</configuration>

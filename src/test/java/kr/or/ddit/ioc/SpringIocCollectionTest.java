@@ -1,12 +1,8 @@
 package kr.or.ddit.ioc;
 
-import static org.junit.Assert.*;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import javax.annotation.Resource;
 
@@ -32,7 +28,11 @@ public class SpringIocCollectionTest {
 
 		/***Then***/
 		assertNotNull(collectionBean.getList());
-		//assertNotNull(collectionBean.getMap());
+		assertNotNull(collectionBean.getMap());
+		assertEquals("brown", collectionBean.getList().get(0));
+		assertEquals("2019-08-08", collectionBean.getMap().get("birth"));
+		assertTrue(collectionBean.getSet().contains("james"));
+		assertEquals(2, collectionBean.getProperties().size());
 		
 	}
 
