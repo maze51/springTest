@@ -1,11 +1,18 @@
 package kr.or.ddit.board.service;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import kr.or.ddit.board.dao.IboardDao;
 
+@Service
 public class BoardService implements IboardService {
 	
 	//property or field
+	@Resource(name="boardDao")
 	private IboardDao boardDao;
+	
 	private String name;
 	
 	//인자를 받는 생성자를 만들었다면 기본 생성자도 만들어야 오류 X
