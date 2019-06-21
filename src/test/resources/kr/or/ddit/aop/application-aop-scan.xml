@@ -16,7 +16,9 @@
 	
 	<aop:aspectj-autoproxy/>
 	
-	<!-- 읽어들인 빈에서 annotation을 통해 해당 스프링 빈에 다른 스프링 빈을 주입할 때 사용 -->
-	<context:annotation-config/>
-	
+	<!-- 읽어들인 빈에서 annotation을 통해 해당 스프링 빈에 다른 스프링 빈을 주입할 때 사용.
+		component-scan하면 함께 처리되므로 여기서는 불필요하다
+		다만 scan방식이 아닐 경우 설정 필요 -->
+<!--<context:annotation-config/> -->
+
 </beans>

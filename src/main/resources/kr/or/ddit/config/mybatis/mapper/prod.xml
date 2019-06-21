@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="prod">
+
+	<!-- PROD 페이지 리스트 조회 -->
+	<select id="prodPagingList" parameterType="pageVo" resultType="prodVo">
+	<![CDATA[
+		select *
+		from
+		(select a.*, rownum rn
+		 from
+		(select a.*
+		 from prod a
+		 order by prod_id) a )
+		where rn >= (#{page}-1)*#{pageSize} + 1 and rn <= #{page}*#{pageSize}
+		]]>
+	</select>
+	
+	<!-- LPROD 전체 수 조회 -->
+	<select id="prodCnt" resultType="int">
+		select count(*) from prod
+	</select>
+	
+	<!-- 상품분류코드에 해당하는 상품목록을 반환 -->
+	<select id="prodList" parameterType="string" resultType="prodVo">
+		select prod_id
+			 , prod_name
+		from prod
+		where prod_lgu = #{prod_lgu}
+	</select>
+</mapper>
