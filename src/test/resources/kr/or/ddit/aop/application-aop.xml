@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- 공통의 관심사항 -->
+	<bean id="loggingAspect" class="kr.or.ddit.aop.LoggingAspect"/>
+	
+	<!-- 공통의 관심사항 : profilingAspect - service 클래스의 메서드들이 실행될 때 메서드의 실행 시간을 구한다 -->
+	<bean id="profilingAspect" class="kr.or.ddit.aop.ProfilingAspect"/>
+	
+	<!-- @Controller, @Service, @Repository, @Component 4가지 어노테이션이 붙은 클래스를 스프링 빈으로 등록 -->
+	<context:component-scan base-package="kr.or.ddit"/>
+	<context:annotation-config/>
+	
+	<aop:config>
+		<!-- 
+			(시나리오)모든 서비스 메서드에 대해 loggingAspect를 적용하고자 한다
+			서비스 메서드는 *Service.java
+			kr.or.ddit.user.service 
+			kr.or.ddit.board.service
+			kr.or.ddit.board.manager.service
+			kr.or.ddit.board.member.service
+			...
+		-->
+		
+		<!-- execution : 접근제어자(생략 가능. spring public) [public 명시] 또는 [생략]
+						 반환타입 - 패키지 - 클래스 - 메서드 - 메서드인자 -->
+	<aop:pointcut id="target" expression="execution(* kr.or.ddit..service.*.*(..))"/> 
+
+<!-- 	하위 패키지가 몇 개가 올지 몰라 service앞에 ..으로 표현함  / 맨 앞 *은 메서드 반환타입 -->
+<!-- 		<aop:pointcut id="target" expression="within(kr.or.ddit..service.*)"/> -->
+
+		<aop:aspect ref="loggingAspect">
+			<aop:before	pointcut-ref="target" method="before"/>
+			<aop:after pointcut-ref="target" method="after"/>
+			<aop:around pointcut-ref="target" method="around"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="profilingAspect">
+			<aop:around pointcut-ref="target" method="around"/>
+		</aop:aspect>
+	</aop:config>
+</beans>
