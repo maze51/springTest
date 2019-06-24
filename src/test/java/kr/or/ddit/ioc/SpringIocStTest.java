@@ -19,7 +19,7 @@ public class SpringIocStTest {
 	@Resource(name="boardService")
 	private IboardService boardService;
 	
-	@Resource(name="bDao")
+	@Resource(name="boardDao")
 	private IboardDao boardDao;
 
 	@Test

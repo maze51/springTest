@@ -10,6 +10,10 @@
 		<appender-ref ref="STDOUT" />
 	</logger>
 	
+	<logger name="org.springframework" level="debug">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
 <!-- 	아래처럼 세분화된 지정, 활용도 가능하다
 		이 경우 로거가 두 개이기 때문에 로그가 두개씩 출력된다
  -->

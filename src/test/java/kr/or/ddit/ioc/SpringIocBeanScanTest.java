@@ -12,10 +12,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import kr.or.ddit.board.dao.IboardDao;
 import kr.or.ddit.board.service.BoardService;
 import kr.or.ddit.board.service.IboardService;
+import kr.or.ddit.testenv.LogicTestEnv;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:kr/or/ddit/ioc/application-ioc-bean-scan.xml")
-public class SpringIocBeanScanTest {
+public class SpringIocBeanScanTest extends LogicTestEnv{
 
 	// <bean> 태그를 이용하여 스프링 빈을 등록하는 방식을 사용하지 않고
 	// @Controller, @Service, @Repository annotation을 적용한 클래스를

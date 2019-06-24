@@ -7,13 +7,16 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<!-- @Controller, @Service, @Repository, @Component 4가지 어노테이션이 붙은 클래스를 스프링 빈으로 등록 -->
-	<context:component-scan base-package="kr.or.ddit">
-		<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/>
-		<!-- @Aspect도 scan가능하도록 설정. expression에는 package를 포함한 클래스명을 써 준다 -->
-	</context:component-scan>
+	<!-- @Service, @Repository, @Component 4가지 어노테이션이 붙은 클래스를 스프링 빈으로 등록 -->
+<!-- 	<context:component-scan base-package="kr.or.ddit"> -->
+<!-- 		<context:include-filter type="annotation" expression="org.aspectj.lang.annotation.Aspect"/> -->
+ 		<!-- @Aspect도 scan가능하도록 설정. expression에는 package를 포함한 클래스명을 써 준다 -->
+<!-- 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/> -->
+<!-- 	</context:component-scan> -->
 	
-	
+	<bean id="boardService" class="kr.or.ddit.board.service.BoardService"/>
+	<bean id="boardDao" class="kr.or.ddit.board.dao.BoardDao"/>
+	<bean id="ProfilingAspect" class="kr.or.ddit.aop.ProfilingAspect"/>
 	<aop:aspectj-autoproxy/>
 	
 	<!-- 읽어들인 빈에서 annotation을 통해 해당 스프링 빈에 다른 스프링 빈을 주입할 때 사용.

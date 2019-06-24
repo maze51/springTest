@@ -38,8 +38,16 @@
 	<!-- 사용자 등록 -->
 	<insert id="insertUser" parameterType="userVo">
 		insert into users
-		values(#{userId}, #{name}, #{alias}, #{pass}, #{addr2}, 
-			#{zipcd}, #{birth}, #{path, jdbcType=VARCHAR}, #{addr1}, #{filename, jdbcType=VARCHAR})
+		values(#{userId},
+			   #{name},
+			   #{alias},
+			   #{pass},
+			   #{addr1},
+			   #{addr2},
+			   #{zipcd},
+			   #{birth},
+			   #{path, jdbcType=VARCHAR},
+			   #{filename, jdbcType=VARCHAR})
 	</insert>
 	
 	<!-- 사용자 삭제 -->
