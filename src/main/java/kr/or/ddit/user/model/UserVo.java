@@ -17,10 +17,16 @@ public class UserVo {
 	
 	public UserVo() {
 	}
-	
+
+	@Override
+	public String toString() {
+		return "UserVo [userId=" + userId + ", name=" + name + ", alias=" + alias + ", pass=" + pass + ", addr1="
+				+ addr1 + ", addr2=" + addr2 + ", zipcd=" + zipcd + ", birth=" + birth + ", path=" + path
+				+ ", filename=" + filename + "]";
+	}
+
 	public UserVo(String userId, String name, String alias, String pass, String addr1, String addr2, String zipcd,
 			Date birth) {
-		super();
 		this.userId = userId;
 		this.name = name;
 		this.alias = alias;
@@ -33,7 +39,6 @@ public class UserVo {
 
 	public UserVo(String userId, String name, String alias, String pass, String addr1, String addr2, String zipcd,
 			Date birth, String path, String filename) {
-		super();
 		this.userId = userId;
 		this.name = name;
 		this.alias = alias;
@@ -45,7 +50,7 @@ public class UserVo {
 		this.path = path;
 		this.filename = filename;
 	}
-
+	
 	public String getAddr1() {
 		return addr1;
 	}
