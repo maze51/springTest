@@ -7,13 +7,13 @@
 	<typeAliases>
 		<typeAlias alias="userVo" type="kr.or.ddit.user.model.UserVo" />
 		<typeAlias alias="pageVo" type="kr.or.ddit.paging.model.PageVo"/>
-<!-- 		<typeAlias alias="lprodVo" type="kr.or.ddit.lprod.model.LprodVo"/> -->
-<!-- 		<typeAlias alias="prodVo" type="kr.or.ddit.prod.model.ProdVo"/> -->
+		<typeAlias alias="lprodVo" type="kr.or.ddit.lprod.model.LprodVo"/>
+ 		<typeAlias alias="prodVo" type="kr.or.ddit.prod.model.ProdVo"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="kr/or/ddit/config/mybatis/mapper/user.xml" />
-<!-- 		<mapper resource="kr/or/ddit/config/mybatis/mapper/lprod.xml" /> -->
-<!-- 		<mapper resource="kr/or/ddit/config/mybatis/mapper/prod.xml" /> -->
+		<mapper resource="kr/or/ddit/config/mybatis/mapper/lprod.xml" />
+		<mapper resource="kr/or/ddit/config/mybatis/mapper/prod.xml" />
 	</mappers>
 </configuration>

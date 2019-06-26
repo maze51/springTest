@@ -1,12 +1,16 @@
 package kr.or.ddit.testenv;
 
-import static org.junit.Assert.fail;
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -28,9 +32,18 @@ public class ControllerTestEnv {
 	protected WebApplicationContext ctx; // spring container 역할
 	protected MockMvc mockMvc; // dispatcher servlet 역할
 	
+	@Resource(name="datasource") // 아래 두번째 인자값에 넣기 위해 주입받음
+	private DataSource datasource;
+	
 	@Before
 	public void setup() {
 		mockMvc = MockMvcBuilders.webAppContextSetup(ctx).build();
+		
+		ResourceDatabasePopulator rdp = new ResourceDatabasePopulator();
+		rdp.setContinueOnError(false); // 에러 발생시 계속 진행할지 여부
+		rdp.addScript(new ClassPathResource("kr/or/ddit/testenv/dbInit.sql"));
+		
+		DatabasePopulatorUtils.execute(rdp, datasource);
 	}
 	
 	@Ignore

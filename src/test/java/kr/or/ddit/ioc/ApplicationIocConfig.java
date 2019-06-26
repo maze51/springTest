@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import kr.or.ddit.board.dao.BoardDao;
 import kr.or.ddit.board.dao.IboardDao;
 import kr.or.ddit.board.service.BoardService;
-import kr.or.ddit.board.service.IboardService;
 
 // spring bean임을 알려주는 설정
 @Configuration
@@ -23,7 +22,7 @@ public class ApplicationIocConfig {
 	// new연산자가 들어갔지만 객체는 여러 번 만들어도 동일하게 생성된다
 	// @Bean 붙은것을 spring container가 읽어 실행한다
 	// method 이름이 bean의 이름이 된다 (기본값)
-	// 단, method 이름을 annotation으로 임의 지정하는 것도 가능하다 (ppt 54p참조) 이름 바꾼다면 메서드 이름(아래 쓸때)에 주의
+	// 단, method 이름을 annotation으로 임의 지정하는 것도 가능하다 (ppt 55p참조) 이름 바꾼다면 메서드 이름(아래 쓸때)에 주의
 	
 //	<bean id="boardService" class="kr.or.ddit.board.service.BoardService">
 //	

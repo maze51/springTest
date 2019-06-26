@@ -42,11 +42,11 @@
 			   #{name},
 			   #{alias},
 			   #{pass},
-			   #{addr1},
 			   #{addr2},
 			   #{zipcd},
 			   #{birth},
 			   #{path, jdbcType=VARCHAR},
+			   #{addr1},
 			   #{filename, jdbcType=VARCHAR})
 	</insert>
 	
@@ -62,7 +62,6 @@
 		set
 		    NAME = #{name}
 		    ,ALIAS = #{alias}
-		    ,PASS = #{pass}
 		    ,ADDR2 = #{addr2}
 		    ,ZIPCD = #{zipcd}
 		    ,BIRTH = #{birth}

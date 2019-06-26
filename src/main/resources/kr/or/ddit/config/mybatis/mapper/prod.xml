@@ -18,7 +18,7 @@
 		]]>
 	</select>
 	
-	<!-- LPROD 전체 수 조회 -->
+	<!-- PROD 전체 수 조회 -->
 	<select id="prodCnt" resultType="int">
 		select count(*) from prod
 	</select>

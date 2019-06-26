@@ -48,13 +48,13 @@
 						<h2 class="sub-header">사용자상세</h2>
 						
 						<form id="frm" class="form-horizontal" role="form"
-							action="${cp }/userModify"
+							action="${cp }/user/modify"
 							method="get">
 						
 							<div class="form-group">
 								<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 								<div class="col-sm-10">
-									<img src="${cp }/profile?userId=${userVo.userId}"/>
+									<img src="${cp }/user/profile?userId=${userVo.userId}"/>
 								</div>
 							</div>
 							

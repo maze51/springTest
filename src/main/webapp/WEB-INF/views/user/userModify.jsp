@@ -61,7 +61,7 @@
 						<h2 class="sub-header">사용자 수정</h2>
 						
 						<form id="frm" class="form-horizontal" role="form"
-								action="${cp }/userModify"
+								action="${cp }/user/modify"
 								method="post"
 								enctype="multipart/form-data">
 						
@@ -80,13 +80,13 @@
 								</div>
 							</div>
 							
-							<div class="form-group">
-								<label for="pass" class="col-sm-2 control-label">비밀번호</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="pass" name="pass"
-										placeholder="비밀번호" value="${userVo.pass }">
-								</div>
-							</div>
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="pass" class="col-sm-2 control-label">비밀번호</label> -->
+<!-- 								<div class="col-sm-10"> -->
+<!-- 									<input type="password" class="form-control" id="pass" name="pass" -->
+<%-- 										placeholder="비밀번호" value="${userVo.pass }"> --%>
+<!-- 								</div> -->
+<!-- 							</div> -->
 		
 							<div class="form-group">
 								<label for="name" class="col-sm-2 control-label">이름</label>
@@ -135,7 +135,7 @@
 								<label for="birth" class="col-sm-2 control-label">생일</label>
 								<div class="col-sm-10">
 									<input type="date" class="form-control" id="birth" name="birth"
-										placeholder="생일" value="${userVo.birthStr }">
+										placeholder="생일" value="${userVo.birth }">
 								</div>
 							</div>
 							

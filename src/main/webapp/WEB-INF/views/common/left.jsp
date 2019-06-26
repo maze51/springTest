@@ -5,11 +5,10 @@
 	<ul class="nav nav-sidebar">
 		<li class="active"><a href="#">Main <span class="sr-only">(current)</span></a></li>
 		
-		<li class="active"><a href="${cp}/userList">사용자리스트</a></li>
+		<li class="active"><a href="${cp}/user/list">사용자리스트</a></li>
 		
-<%-- 		<li class="active"><a href="${cp}/userPagingList?page=1&pageSize=10">사용자페이징리스트</a></li> --%>
-		<li class="active"><a href="${cp}/userPagingList">사용자페이징리스트</a></li>
-		<li class="active"><a href="${cp}/lprodPagingList">LPROD페이징리스트</a></li>
-		<li class="active"><a href="${cp}/prodPagingList">PROD페이징리스트</a></li>
+		<li class="active"><a href="${cp}/user/pagingList">사용자페이징리스트</a></li>
+		<li class="active"><a href="${cp}/prod/pagingList">PROD페이징리스트</a></li>
+		<li class="active"><a href="${cp}/lprod/pagingList">LPROD페이징리스트</a></li>
 	</ul>
 </div>

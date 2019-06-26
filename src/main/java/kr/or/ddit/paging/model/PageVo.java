@@ -29,5 +29,33 @@ public class PageVo {
 		return "PageVo [page=" + page + ", pageSize=" + pageSize + "]";
 	}
 	
+	// 재설정한 getter에 맞게 수정
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + getPage();
+		result = prime * result + getPageSize();
+		return result;
+	}
+	
+	// 재설정한 getter에 맞게 수정
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PageVo other = (PageVo) obj;
+		if (getPage() != other.getPage())
+			return false;
+		if (getPageSize() != other.getPageSize())
+			return false;
+		return true;
+	}
+	
+	
 	
 }

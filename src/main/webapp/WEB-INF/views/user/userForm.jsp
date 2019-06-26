@@ -86,7 +86,7 @@
 						<h2 class="sub-header">사용자 등록</h2>
 						
 						<form id="frm" class="form-horizontal" role="form"
-								action="${cp }/userForm"
+								action="${cp }/user/form"
 								method="post"
 								enctype="multipart/form-data">
 						
