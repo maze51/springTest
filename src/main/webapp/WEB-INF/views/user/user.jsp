@@ -23,6 +23,9 @@
 <%@include file="/WEB-INF/views/common/basicLib.jsp" %>
 <script>
 	$(document).ready(function(){
+		<c:if test="${not empty msg}">
+			alert("${msg}");
+		</c:if>
 		
 		$("#userUpdateBtn").on("click", function(){
 			$("#frm").submit();

@@ -3,6 +3,8 @@ package kr.or.ddit.main.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,9 +13,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.or.ddit.main.model.MainVo;
 import kr.or.ddit.user.model.UserVo;
 
 /*
@@ -150,4 +154,38 @@ public class MainController {
 		
 		return "main";
 	}
+	
+	@RequestMapping("/main/view")
+	public String view() {
+		
+		return "view"; // WEB-INF의 views에 jsp 파일을 만든다
+	}
+	
+	@RequestMapping("/main/process")
+	public String process(HttpServletRequest request, String[] userId, // String[] userId: 파라미터 이름과 일치하면 RequestParam하지 않아도 된다. 
+			@RequestParam("userId")List<String> userIdList, // 이름(userId)이 중복되어 그대로 쓸 수 없으므로 어디에서 받아오는지 지정한다
+			@RequestParam("name")List<String> name, // List<>타입의 경우 @RequestParam을 적용해야 정상 작동된다 
+			MainVo mainVo) { // 인자로 value객체를 받을 경우.. 이름이 같으면 역시 자동으로 바인딩됨  
+		
+		String[] userIdArr = request.getParameterValues("userId");
+		
+		String userIdParameter = request.getParameter("userId");
+		logger.debug("userIdParameter : {}", userIdParameter);
+		
+		logger.debug("request.getParameterValues(\"userId\")");
+		for(String u : userIdArr)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("String[] userId");
+		for(String u : userId)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("userIdList");
+		for(String u : userIdList)
+			logger.debug("userId : {}", u);
+		
+		logger.debug("mainVo : {}", mainVo);
+		
+		return "main";
+	} // 결과는 모두 동일. 이처럼 복수 파라미터를 여러 방식으로 받을 수 있다
 }
