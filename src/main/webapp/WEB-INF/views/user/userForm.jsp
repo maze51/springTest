@@ -5,6 +5,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +53,7 @@
 		})
 		
 		// 개발용 데이터 초기화 함수 ***** 추후 지울 것
-		//dataInit();
+		dataInit();
 		
 	})
 	
@@ -102,6 +103,7 @@
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="userId" name="userId"
 										placeholder="사용자 아이디" value="${param.userId }">
+										<form:errors path="userVo.userId"/>
 								</div>
 							</div>
 							
@@ -118,6 +120,7 @@
 								<div class="col-sm-10">
 									<input type="text" class="form-control" id="name" name="name"
 										placeholder="사용자 이름" value="${param.name }">
+										<form:errors path="userVo.name"/>
 								</div>
 							</div>
 							

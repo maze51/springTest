@@ -10,6 +10,15 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/404/404.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/500/500.jsp</location>
+  </error-page>
+  
   
  <filter>
   	<filter-name>encodingFilter</filter-name>
@@ -55,7 +64,9 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<!-- controller 관련 부분 -->
-			<param-value>classpath:kr/or/ddit/config/spring/application-context.xml</param-value>
+			<param-value>classpath:kr/or/ddit/config/spring/application-context.xml
+<!-- 						 classpath:kr/or/ddit/config/spring/application-interceptor.xml -->
+			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

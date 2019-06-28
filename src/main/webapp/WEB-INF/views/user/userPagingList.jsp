@@ -96,6 +96,7 @@
 						</div>
 				
 						<a href="${cp }/user/form" class="btn btn-default pull-right">사용자 등록</a>
+						<a href="${cp }/user/userListExcel?filename=userList" class="btn btn-default pull-right">엑셀다운</a>
 					
 						<!-- 
 							사용자 수 : 105건
