@@ -89,7 +89,7 @@ public class MainController {
 		model.addAttribute("mainUserId", "brown");
 		
 		// 이 반환값이 viewName
-		return "main";
+		return "tiles.main";
 	}
 	
 	/**

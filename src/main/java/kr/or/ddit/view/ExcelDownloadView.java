@@ -31,6 +31,7 @@ public class ExcelDownloadView implements View{
 	public void render(Map<String, ?> model, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		
+		// (String)model.get("filename"); 으로도 가능하다
 		String fileName = request.getParameter("filename");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/vnd.ms-excel");

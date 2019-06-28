@@ -39,7 +39,7 @@ public class MainControllerTest extends ControllerTestEnv{
 		String userId = (String)mav.getModel().get("mainUserId"); // MainController에서 model.addAttribute("mainUserId", "brown");로 넣어준 값
 		
 		/***Then***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 		assertEquals("brown", userId);
 		assertNotNull(mav.getModel().get("rangers"));
 		assertNotNull(mav.getModel().get("userVo"));
@@ -51,7 +51,7 @@ public class MainControllerTest extends ControllerTestEnv{
 		// 위 test과정을 다르게 적은 것
 		mockMvc.perform(get("/main"))
 				.andExpect(status().isOk()) // 200이면 통과
-				.andExpect(view().name("main"))
+				.andExpect(view().name("tiles.main"))
 				.andExpect(model().attribute("mainUserId", "brown"))
 				.andExpect(model().attributeExists("rangers"))
 				.andExpect(model().attributeExists("userVo"));
