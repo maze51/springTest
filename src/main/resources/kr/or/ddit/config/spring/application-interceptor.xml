@@ -7,24 +7,34 @@
 	
 	<mvc:interceptors>
 		
-		<mvc:interceptor>
-			<!-- 모든 요청에 대해 인터셉터를 거쳐간다. 복수 segments를 받기 위해 아래와 같이 씀 -->
-			<mvc:mapping path="/**"/>
+<!-- 		<mvc:interceptor> -->
+ 			<!-- 모든 요청에 대해 인터셉터를 거쳐간다. 복수 segments를 받기 위해 아래와 같이 씀 -->
+<!-- 			<mvc:mapping path="/**"/> -->
 			
-			<!-- bean이 다른 곳에서 쓰이지 않는다면 id 생략 가능 -->
-			<bean id="performanceInterceptor" class="kr.or.ddit.interceptor.PerformanceInterceptor"/>
+ 			<!-- bean이 다른 곳에서 쓰이지 않는다면 id 생략 가능 -->
+<!-- 			<bean id="performanceInterceptor" class="kr.or.ddit.interceptor.PerformanceInterceptor"/> -->
+<!-- 		</mvc:interceptor> -->
+		
+<!-- 		<mvc:interceptor> -->
+<!-- 			<mvc:mapping path="/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/login"/> -->
+<!-- 			<mvc:exclude-mapping path="/js/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/css/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/img/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/bootstrap/**"/> -->
+<!-- 			<mvc:exclude-mapping path="/error/**"/> -->
+<!-- 			<bean class="kr.or.ddit.interceptor.SessionCheckInterceptor"/> -->
+<!-- 		</mvc:interceptor> -->
+		
+		
+		<!-- localeChange Interceptor -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+				<property name="paramName" value="lang"/>
+			</bean>
 		</mvc:interceptor>
 		
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/>
-			<mvc:exclude-mapping path="/login"/>
-			<mvc:exclude-mapping path="/js/**"/>
-			<mvc:exclude-mapping path="/css/**"/>
-			<mvc:exclude-mapping path="/img/**"/>
-			<mvc:exclude-mapping path="/bootstrap/**"/>
-			<mvc:exclude-mapping path="/error/**"/>
-			<bean class="kr.or.ddit.interceptor.SessionCheckInterceptor"/>
-		</mvc:interceptor>
 		
 	</mvc:interceptors>
 

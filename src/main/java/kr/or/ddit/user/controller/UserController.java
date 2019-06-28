@@ -113,6 +113,45 @@ public class UserController {
 
 	/**
 	 * 
+	* Method : pagingListAjax
+	* 작성자 : PC10
+	* 변경이력 :
+	* @param pageVo
+	* @param model
+	* @return
+	* Method 설명 : 사용자 페이징 리스트 ajax 처리
+	 */
+	@RequestMapping("/pagingListAjax") // 여기서 사용자 정보를 동적으로 만든다
+	public String pagingListAjax(PageVo pageVo, Model model) {
+		
+		// Map을 하나하나 빼서 다시 넣지 않는 방법? 그대로 넣는다?
+		model.addAttribute("data", userService.userPagingList(pageVo)); // Map객체를 리턴한다. pageVo도 자동으로 추가된다. 받는 쪽에서는 data.userList식으로 받는다
+		
+		// { data : {userList : [{userId : 'brown', name : '브라운', ...}, {}, ..., {}], paginationSize : 11 }, pageVo : {page : 1, pageSize : 10}}
+		
+		return "jsonView";//json view 활용
+	}
+	
+	@RequestMapping("/pagingListAjaxHtml")
+	public String pagingListAjaxHtml(PageVo pageVo, Model model) {
+		
+		model.addAttribute("data", userService.userPagingList(pageVo));
+		
+		return "user/userPagingListAjaxHtml";
+	}
+	
+	
+	
+	
+	@RequestMapping("/pagingListAjaxView") // jsp 화면만 띄운다
+	public String pagingListAjaxView() {
+		
+		return "tiles.pagingListAjaxView";
+	}
+	
+	
+	/**
+	 * 
 	 * Method : user 작성자 : PC10 변경이력 :
 	 * 
 	 * @param userId

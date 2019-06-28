@@ -86,8 +86,12 @@
 		<property name="basenames">
 			<list>
 				<value>classpath:kr/or/ddit/msg/error</value> <!-- 만든 property 위치를 지정 -->
+				<value>classpath:kr/or/ddit/msg/msg</value> <!-- 이렇게만 써도 알아서 커버된다 -->
 			</list>
 		</property>
 	</bean>
+	
+	<!-- localeResolver -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
 	
 </beans>

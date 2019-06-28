@@ -63,9 +63,10 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
+			
 			<!-- controller 관련 부분 -->
 			<param-value>classpath:kr/or/ddit/config/spring/application-context.xml
-<!-- 						 classpath:kr/or/ddit/config/spring/application-interceptor.xml -->
+						 classpath:kr/or/ddit/config/spring/application-interceptor.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
