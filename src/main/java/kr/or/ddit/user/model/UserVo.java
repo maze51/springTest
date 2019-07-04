@@ -4,9 +4,11 @@ import java.util.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+//@XmlRootElement(name = "userVo") // xml 생성을 위해 필요
 public class UserVo {
 	
 	@Size(min = 4) // size가 errorcode
