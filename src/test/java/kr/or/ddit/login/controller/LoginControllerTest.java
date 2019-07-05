@@ -56,7 +56,7 @@ public class LoginControllerTest extends ControllerTestEnv{
 		String viewName = mav.getViewName();
 
 		/***Then***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 	}
 	
 	/**
@@ -86,7 +86,7 @@ public class LoginControllerTest extends ControllerTestEnv{
 		UserVo userVo = (UserVo) session.getAttribute("USER_INFO");
 		
 		/***Then***/
-		assertEquals("main", viewName);
+		assertEquals("tiles.main", viewName);
 		assertNotNull(userVo); // session의 USER_INFO 검증
 		assertEquals("brown", userVo.getUserId());
 		assertEquals("곰곰곰곰곰", userVo.getAlias());

@@ -31,7 +31,7 @@ public class LoginController {
 	@RequestMapping(path = "/login", method = RequestMethod.GET) // get으로 요청 오면 메서드를 탄다
 	public String loginView(HttpSession session) {
 		if(session.getAttribute("USER_INFO")!=null)
-			return "main"; // /WEB-INF/views/main.jsp
+			return "tiles.main"; // /WEB-INF/views/main.jsp
 		else
 			return "login/login"; // login 폴더의 login.jsp로 리턴하겠다(/WEB-INF/views/login/login.jsp)
 		
@@ -60,7 +60,7 @@ public class LoginController {
 			
 			session.setAttribute("USER_INFO", userVo);
 			
-			return "main"; // main으로 forward하는 과정
+			return "tiles.main"; // main으로 forward하는 과정
 		}
 		else
 			return "login/login";
