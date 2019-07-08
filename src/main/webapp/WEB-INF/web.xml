@@ -93,5 +93,6 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>	<!-- default servlet으로 override함. 다른 쪽에서 처리되지 않는 url을 이것이 받도록 -->
 	</servlet-mapping>
-  
+  	
+  	<!-- branch 확인용 커밋 -->
 </web-app>
