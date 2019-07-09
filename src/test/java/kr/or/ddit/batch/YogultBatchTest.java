@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 		"classpath:kr/or/ddit/config/spring/application-datasource-dev.xml",
 		"classpath:kr/or/ddit/config/spring/application-transaction.xml",
 		"classpath:kr/or/ddit/config/spring/application-batch-dev.xml"})
-public class RangerBatchTest {
+public class YogultBatchTest {
 	
 	@Resource(name = "jobLauncher")
 	private JobLauncher jobLauncher;
