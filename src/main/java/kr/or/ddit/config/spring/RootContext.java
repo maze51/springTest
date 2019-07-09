@@ -14,8 +14,7 @@ import org.springframework.stereotype.Service;
 @ComponentScan(basePackages = "kr.or.ddit", useDefaultFilters = false,
 				includeFilters = {@Filter(type = FilterType.ANNOTATION, classes = {Service.class, Repository.class})})
 //useDefaultFilters = false 하지 않으면 bean이 과다 생성됨 => 리소스 낭비
-@ImportResource({"classpath:kr/or/ddit/config/spring/application-scheduler.xml",
-				 "classpath:kr/or/ddit/config/spring/application-batch.xml"})
+@ImportResource({"classpath:kr/or/ddit/config/spring/application-scheduler.xml"})
 public class RootContext {
 
 }
